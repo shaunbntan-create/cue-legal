@@ -17,18 +17,29 @@
 </head>
 <body>
 <h1>Cue - Privacy Policy</h1>
-<p class="muted">Effective July 18, 2026</p>
+<p class="muted">Effective July 24, 2026</p>
 
-<p>Cue ("the app") is a local-first to-do and scheduling app. It was built so your data stays on your device. We do not run servers, we do not create accounts, and we do not collect, sell, or share your personal information.</p>
+<p>Cue ("the app") is a local-first to-do and scheduling app. Your tasks live on your device. There are no accounts and no sign-ups, and we do not sell or share your personal information. Some optional features (described below) send limited data to servers so they can work.</p>
 
 <h2>Your tasks and notes</h2>
-<p>Everything you create in Cue - tasks, subtasks, categories, notes, schedules, greetings, and background photos - is stored in a local database on your device only. It is never uploaded to us. Deleting the app deletes this data.</p>
+<p>Everything you create in Cue - tasks, subtasks, categories, notes, schedules, time blocks, greetings, saved AI memories, and background photos - is stored in a local database on your device. We do not run a database of your tasks, and deleting the app deletes this data.</p>
+
+<h2>AI features (Cue AI)</h2>
+<p>When you use Cue's AI (voice-to-task parsing, the AI chat, and AI photo reading), the text needed for that request - your message, a compact summary of the relevant tasks, and any saved AI preferences - is sent over an encrypted connection to our AI relay (hosted on Cloudflare), which forwards it to our AI model provider (DeepSeek) to generate the response. This happens only when you actively use an AI feature; the app never uploads your data in the background.</p>
+<ul>
+  <li>Requests include a random device identifier (not your name or any account) used only for daily rate limits and abuse prevention, plus an Apple App Attest check that proves the request comes from the real app.</li>
+  <li>Our relay does not store the content of your requests or responses.</li>
+  <li>The AI provider processes the text to produce the reply, subject to the <a href="https://platform.deepseek.com/downloads/DeepSeek%20Privacy%20Policy.html">DeepSeek privacy policy</a>.</li>
+</ul>
+
+<h2>Photo reading (OCR)</h2>
+<p>If you attach a photo in the AI chat (for example a handwritten list), the image is sent to our relay and read by a vision model running on Cloudflare Workers AI to extract its text, which is then used to suggest tasks. Images are processed for that request only; our relay does not store them. If the cloud reader is unavailable, the app falls back to reading the photo entirely on your device.</p>
 
 <h2>Voice input</h2>
-<p>Voice capture uses Apple's on-device speech recognition. Audio is transcribed on your iPhone and is not sent to us.</p>
+<p>Voice capture uses Apple's speech recognition. Cue asks for on-device transcription first; if that fails, it may retry using Apple's speech service, in which case the audio is handled under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. Cue itself never receives or stores your audio.</p>
 
-<h2>Optional AI features</h2>
-<p>Cue's AI features (task parsing and chat) work by connecting to an AI provider (Groq) using an API key that you supply and that belongs to you. When you use these features, the text of the relevant tasks or messages is sent to that provider under your own account and is subject to the provider's privacy policy. We never see, receive, or store this data. If you don't add an API key, nothing leaves your device.</p>
+<h2>Calendar and notifications</h2>
+<p>If you allow calendar access, Cue can mirror your scheduled tasks into your device calendar; those events stay in your calendar account and are never sent to us. Reminders use local notifications generated on your device.</p>
 
 <h2>Purchases</h2>
 <p>Subscriptions and one-time purchases are processed by Apple through the App Store. To manage subscription status, the app uses RevenueCat, which receives an anonymous identifier and purchase history - never your name, email, or task content. See the <a href="https://www.revenuecat.com/privacy/">RevenueCat privacy policy</a>.</p>
@@ -36,13 +47,14 @@
 <h2>What we don't do</h2>
 <ul>
   <li>No accounts or sign-ups</li>
-  <li>No analytics or usage tracking</li>
+  <li>No analytics or usage tracking SDKs</li>
   <li>No advertising or ad identifiers</li>
   <li>No selling or sharing of data</li>
+  <li>No background uploading - data leaves your device only when you use an AI feature, and only what that request needs</li>
 </ul>
 
 <h2>Data deletion</h2>
-<p>Your data lives on your device. Deleting the app removes it. Purchase records held by Apple are governed by Apple's own policies.</p>
+<p>Your data lives on your device, so deleting the app removes it. Our AI relay keeps no store of your content to delete. Purchase records held by Apple are governed by Apple's own policies.</p>
 
 <h2>Children</h2>
 <p>Cue is not directed at children under 13 and collects no personal information from anyone.</p>
